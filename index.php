@@ -1,6 +1,9 @@
 <?php
 session_start();
 require("dbconnect.php");
+if (!empty($_POST)) {
+  # code...
+}
 ?>
 
 <!DOCTYPE html>
