@@ -19,9 +19,15 @@ require("dbconnect.php");
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
   </head>
   <body>
-    <div class="container bg-success w-50 h-50">
       <form action="" method="post" enctype="multipart/form-data">
-        <p class = "pt-2 text-white">ニックネーム<input type="text" name = "name" class = "form-control"></p>
+        <div>
+          <input type="submit" value="writting">
+          <label for="">name:</label>
+          <input type="text" name="username">
+        </div>
+        <div>
+          <textarea name="" id="" cols="50" rows="10"></textarea>
+        </div>
       </form>
     </div>
   </body>
