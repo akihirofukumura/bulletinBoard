@@ -1,9 +1,6 @@
 <?php
 session_start();
 require("dbconnect.php");
-if (!empty($_POST)) {
-  # code...
-}
 ?>
 
 <!DOCTYPE html>
@@ -21,5 +18,11 @@ if (!empty($_POST)) {
     />
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
   </head>
-  <body></body>
+  <body>
+    <div class="container bg-success w-50 h-50">
+      <form action="" method="post" enctype="multipart/form-data">
+        <p class = "pt-2 text-white">ニックネーム<input type="text" name = "name" class = "form-control"></p>
+      </form>
+    </div>
+  </body>
 </html>
