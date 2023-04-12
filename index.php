@@ -19,6 +19,7 @@ require("dbconnect.php");
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
   </head>
   <body>
+    <div class = "container bg-info w-50 h-50  text-white">
       <section>
         <article>
           <div class = "d-flex">
@@ -29,14 +30,16 @@ require("dbconnect.php");
           <p>Comment</p>
         </article>
       </section>
+    </div>
+    <div class = "container bg-secondary w-50">
       <form action="" method="post" enctype="multipart/form-data">
-        <div>
-          <input type="submit" value="writting">
+        <div class ="text-center pt-3">
+          <input type="submit" value="writting" class = "">
           <label for="">name:</label>
           <input type="text" name="username">
         </div>
-        <div>
-          <textarea name="" id="" cols="50" rows="10"></textarea>
+        <div class="text-center pt-2 pb-2">
+          <textarea name="" id="" cols="50" rows="5"></textarea>
         </div>
       </form>
     </div>
