@@ -19,6 +19,16 @@ require("dbconnect.php");
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
   </head>
   <body>
+      <section>
+        <article>
+          <div class = "d-flex">
+            <span>name:</span>
+            <p>newCode</p>
+            <time>:7/15/2022</time>
+          </div>
+          <p>Comment</p>
+        </article>
+      </section>
       <form action="" method="post" enctype="multipart/form-data">
         <div>
           <input type="submit" value="writting">
