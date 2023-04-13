@@ -1,4 +1,7 @@
 <?php
+
+$comment_array = array();
+
 if (!empty($_POST["btn"])) {
   echo $_POST["username"];
   echo $_POST["comment"];
@@ -12,6 +15,13 @@ try {
 } catch (PDOException $e) {
   echo $e->getMessage();
 }
+
+// DBからコメントデータを取得
+  $sql = "SELECT `id`, `username`, `comment`, `postDate` FROM `bb_table`";
+  $comment_array = $pdo->query($sql);
+
+  // DBの接続を閉じる
+  $pdo = null;
 ?> 
 
 <!DOCTYPE html>
