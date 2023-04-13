@@ -1,7 +1,6 @@
 <?php
-session_start();
-require("dbconnect.php");
-?>
+echo $_POST["username"];
+?> 
 
 <!DOCTYPE html>
 <html lang="ja">
