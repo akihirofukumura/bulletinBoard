@@ -1,5 +1,6 @@
 <?php
 echo $_POST["username"];
+echo $_POST["comment"];
 ?> 
 
 <!DOCTYPE html>
@@ -38,7 +39,7 @@ echo $_POST["username"];
           <input type="text" name="username">
         </div>
         <div class="text-center pt-2 pb-2">
-          <textarea name="" id="" cols="50" rows="5"></textarea>
+          <textarea name="comment" id="" cols="50" rows="5"></textarea>
         </div>
       </form>
     </div>
