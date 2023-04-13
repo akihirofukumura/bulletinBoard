@@ -1,7 +1,17 @@
 <?php
-echo $_POST["btn"];
-echo $_POST["username"];
-echo $_POST["comment"];
+if (!empty($_POST["btn"])) {
+  echo $_POST["username"];
+  echo $_POST["comment"];
+}
+// emptyという関数は、この中に入れる値が「空か」を判定する。
+// 今回の場合は「空＝trure」ではなく「書き込むボタンを押す」ということは値があるため「空でないとき＝true」にしたいから！empty。
+
+// DB接続
+try {
+  $pdo = new PDO('mysql:host=localhost;dbname=bulletin_b',"root","root");
+} catch (PDOException $e) {
+  echo $e->getMessage();
+}
 ?> 
 
 <!DOCTYPE html>
