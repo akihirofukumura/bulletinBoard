@@ -1,4 +1,5 @@
 <?php
+echo $_POST["btn"];
 echo $_POST["username"];
 echo $_POST["comment"];
 ?> 
@@ -34,7 +35,7 @@ echo $_POST["comment"];
     <div class = "container bg-secondary w-50">
       <form action="" method="post" enctype="multipart/form-data">
         <div class ="text-center pt-3">
-          <input type="submit" value="writting" class = "">
+          <input type="submit" value="writting" name = "btn">
           <label for="">name:</label>
           <input type="text" name="username">
         </div>
