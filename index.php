@@ -19,7 +19,10 @@ try {
 // DBからコメントデータを取得
   $sql = "SELECT `id`, `username`, `comment`, `postDate` FROM `bb_table`";
   $comment_array = $pdo->query($sql);
-
+  //「->」アロー演算子 はその左辺にはクラスのインスタンスを取り、右辺には左辺のクラスが持つプロパティやメソッドを指定しプロパティへのアクセス・メソッドの呼び出しを実行します。
+  // 「クラス」は設計書のようなもの。
+  // 「インスタンス」は実際に作ること。 ex)家を作る設計書がクラス。実際に立てるのがインスタンス
+  
   // DBの接続を閉じる
   $pdo = null;
 ?> 
@@ -42,14 +45,16 @@ try {
   <body>
     <div class = "container bg-info w-50 h-50  text-white">
       <section>
-        <article>
-          <div class = "d-flex">
-            <span>name:</span>
-            <p>newCode</p>
-            <time>:7/15/2022</time>
-          </div>
-          <p>Comment</p>
-        </article>
+        <?php foreach($comment_array as $comment):?>
+          <article>
+            <div class = "d-flex">
+              <span>name:</span>
+              <p><?php echo $comment["username"];?></p>
+              <time><?php echo $comment["postDate"];?></time>
+            </div>
+            <p><?php echo $comment["comment"];?></p>
+          </article>
+        <?php endforeach;?>
       </section>
     </div>
     <div class = "container bg-secondary w-50">
