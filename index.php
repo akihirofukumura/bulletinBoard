@@ -2,19 +2,32 @@
 
 $comment_array = array();
 
-if (!empty($_POST["btn"])) {
-  echo $_POST["username"];
-  echo $_POST["comment"];
-}
-// emptyという関数は、この中に入れる値が「空か」を判定する。
-// 今回の場合は「空＝trure」ではなく「書き込むボタンを押す」ということは値があるため「空でないとき＝true」にしたいから！empty。
-
 // DB接続
 try {
   $pdo = new PDO('mysql:host=localhost;dbname=bulletin_b',"root","root");
 } catch (PDOException $e) {
-  echo $e->getMessage();
+  echo $e->getMessage("s");
 }
+
+// formを打ち込んだとき
+if (!empty($_POST["btn"])) {
+  $postDate = date("Y-m-d H:i:s");
+
+  try {
+    $stmt = $pdo->prepare("INSERT INTO `bb_table` (`username`, `comment`, `postDate`) VALUES (:username, :comment, :postDate)");
+    $stmt->bindParam(':username', $_POST["username"], PDO::PARAM_STR);
+    $stmt->bindParam(':comment', $_POST["comment"], PDO::PARAM_STR);
+    $stmt->bindParam(':postDate', $postDate, PDO::PARAM_STR);
+  
+    $stmt -> execute();
+    } catch (PDOException $e) {
+      echo $e->getMessage();
+    }
+    
+}
+// emptyという関数は、この中に入れる値が「空か」を判定する。
+// 今回の場合は「空＝trure」ではなく「書き込むボタンを押す」ということは値があるため「空でないとき＝true」にしたいから！empty。
+
 
 // DBからコメントデータを取得
   $sql = "SELECT `id`, `username`, `comment`, `postDate` FROM `bb_table`";
