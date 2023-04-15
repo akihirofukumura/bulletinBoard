@@ -1,5 +1,7 @@
 <?php
 
+// エスケープ処理を実行しないとコメントでコード書いたら適応されてハッキングされる。
+
 // 日本時間に合わせる
 date_default_timezone_set("Asia/Tokyo");
 
