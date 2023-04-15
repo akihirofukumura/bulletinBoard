@@ -1,6 +1,11 @@
 <?php
 
+// 日本時間に合わせる
+date_default_timezone_set("Asia/Tokyo");
+
 $comment_array = array();
+$pdo = null;
+$stmt = null;
 
 // DB接続
 try {
