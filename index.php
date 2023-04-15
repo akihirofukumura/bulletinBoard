@@ -16,6 +16,19 @@ try {
 
 // formを打ち込んだとき
 if (!empty($_POST["btn"])) {
+
+  // 名前のチェック
+  if (empty($_POST["username"])) {
+    echo "Please write your name !";
+  }
+
+  // コメントのチェック
+  if (empty($_POST["comment"])) {
+    echo  "Please write your comment !";
+  }
+
+
+
   $postDate = date("Y-m-d H:i:s");
 
   try {
