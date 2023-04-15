@@ -6,6 +6,7 @@ date_default_timezone_set("Asia/Tokyo");
 $comment_array = array();
 $pdo = null;
 $stmt = null;
+$error_messages = array();
 
 // DB接続
 try {
@@ -20,28 +21,29 @@ if (!empty($_POST["btn"])) {
   // 名前のチェック
   if (empty($_POST["username"])) {
     echo "Please write your name !";
+    $error_messages["username"] = "Please write your name !";
   }
 
   // コメントのチェック
   if (empty($_POST["comment"])) {
     echo  "Please write your comment !";
+    $error_messages["comment"] = "Please write your comment !";
   }
 
-
-
-  $postDate = date("Y-m-d H:i:s");
-
-  try {
-    $stmt = $pdo->prepare("INSERT INTO `bb_table` (`username`, `comment`, `postDate`) VALUES (:username, :comment, :postDate)");
-    $stmt->bindParam(':username', $_POST["username"], PDO::PARAM_STR);
-    $stmt->bindParam(':comment', $_POST["comment"], PDO::PARAM_STR);
-    $stmt->bindParam(':postDate', $postDate, PDO::PARAM_STR);
-  
-    $stmt -> execute();
-    } catch (PDOException $e) {
-      echo $e->getMessage();
-    }
+  // データの送信
+  if (empty($error_messages)) {
+    $postDate = date("Y-m-d H:i:s");
+    try {
+      $stmt = $pdo->prepare("INSERT INTO `bb_table` (`username`, `comment`, `postDate`) VALUES (:username, :comment, :postDate)");
+      $stmt->bindParam(':username', $_POST["username"], PDO::PARAM_STR);
+      $stmt->bindParam(':comment', $_POST["comment"], PDO::PARAM_STR);
+      $stmt->bindParam(':postDate', $postDate, PDO::PARAM_STR);
     
+      $stmt -> execute();
+      } catch (PDOException $e) {
+        echo $e->getMessage();
+      }
+  }   
 }
 // emptyという関数は、この中に入れる値が「空か」を判定する。
 // 今回の場合は「空＝trure」ではなく「書き込むボタンを押す」ということは値があるため「空でないとき＝true」にしたいから！empty。
