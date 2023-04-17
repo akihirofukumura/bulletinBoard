@@ -100,7 +100,7 @@ if (!empty($_POST["btn"])) {
           <input type="text" name="username">
         </div>
         <div class="text-center pt-2 pb-2">
-          <textarea name="comment" id="" cols="50" rows="5"></textarea>
+          <textarea name="comment" id="" cols="50" rows="5" class="form-control"></textarea>
         </div>
       </form>
     </div>
