@@ -77,8 +77,8 @@ if (!empty($_POST["btn"])) {
     />
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
   </head>
-  <body>
-    <div class = "container bg-info w-50 h-50  text-white">
+  <body class = "d-flex">
+    <div class = "container bg-info w-50 h-50 text-white">
       <section>
         <?php foreach($comment_array as $comment):?>
           <article>
